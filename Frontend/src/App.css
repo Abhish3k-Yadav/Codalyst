@@ -1,0 +1,196 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  background-color: #1a1a1a;
+  font-family: 'Fira Code', 'JetBrains Mono', monospace;
+}
+
+header {
+  color: #ff9500;
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  50% {
+    text-shadow: 0 0 20px rgba(255, 111, 0, 0.8);
+  }
+
+  100% {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+}
+
+main {
+  height: calc(100% - 40px);
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+main .left,
+main .right {
+  height: 100%;
+  flex-basis: 50%;
+  border-radius: 0.7rem;
+}
+
+main .left {
+  background-color: #212121;
+  display: flex;
+  flex-direction: column;
+}
+
+.left-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.left h3 {
+  color: #ff9500;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.left .button-bar {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.left .button-bar button,
+.left .review-btn {
+  background-color: #ff9500;
+  color: #ffffff;
+  border: none;
+  padding: 0.35rem 0.8rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0.4rem;
+  transition: background-color 0.2s;
+  position: relative;
+  font-weight: 500;
+}
+
+.left .button-bar button:hover,
+.left .review-btn:hover {
+  background-color: #ff8000;
+}
+
+.review-btn {
+  width: 130px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.review-btn.reviewing::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, #ff8000, transparent);
+  animation: button-progress 1.5s linear infinite;
+}
+
+@keyframes button-progress {
+  0% {
+    left: -100%;
+  }
+
+  50% {
+    left: 0;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+.left .code {
+  flex: 1;
+  overflow: auto;
+  border-radius: 0.7rem;
+  background-color: #2a2a2a;
+  padding: 0 0.5rem 0.5rem 0.5rem;
+}
+
+.react-simple-code-editor textarea:focus {
+  outline: none;
+  background-color: rgba(255, 149, 0, 0.07);
+}
+
+main .right {
+  background-color: #343434;
+  overflow: auto;
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+}
+
+.right h3 {
+  color: #ff9500;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem;
+}
+
+.right .review-content {
+  padding: 1rem 1.5rem;
+  flex: 1;
+  overflow: auto;
+}
+
+.right .review-content>* {
+  margin-top: 0.5rem;
+}
+
+.right ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.right ul li {
+  margin-bottom: 0.3rem;
+}
+
+.right pre {
+  background-color: #1e1e1e;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  margin: 0.5rem 0;
+}
+
+.right pre code {
+  color: #d4d4d4;
+}
+
+.right .loading,
+.right .error {
+  font-style: italic;
+  color: #bbbbbb;
+}
