@@ -31,7 +31,7 @@ function App() {
         { code }
       );
       setReview(response.data);
-    } catch (error) {
+    } catch {
       setReview('Error fetching review. Please try again.');
     } finally {
       setIsReviewing(false);
@@ -91,7 +91,3 @@ function App() {
 }
 
 export default App;
-
-app.get('/', (req, res) => {
-  res.send('Hello from Express!');
-});
