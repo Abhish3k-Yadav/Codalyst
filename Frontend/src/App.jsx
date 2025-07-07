@@ -27,7 +27,7 @@ function App() {
     setIsReviewing(true);
     try {
       const response = await axios.post(
-        'https://codalyst-1.onrender.com/ai/get-review',
+        'https://codalyst.onrender.com/ai/get-review',
         { code }
       );
       setReview(response.data);
