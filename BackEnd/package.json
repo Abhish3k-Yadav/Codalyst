@@ -14,5 +14,8 @@
     "@google/generative-ai": "^0.24.0",
     "cors": "^2.8.5",
     "express": "^5.1.0"
+  },
+  "routes": {
+    "/": "app.get('/', (req, res) => res.send('Backend is running!'));"
   }
 }
