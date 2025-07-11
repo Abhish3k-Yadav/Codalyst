@@ -70,11 +70,13 @@ function App() {
                 fontSize: 16,
                 border: 'none',
                 borderRadius: '5px',
-                minHeight: '100%',
+                minHeight: '150px',
                 width: '100%',
                 overflow: 'auto',
                 backgroundColor: '#2a2a2a',
                 color: '#e0e0e0',
+                boxSizing: 'border-box',
+                resize: 'vertical',
               }}
             />
           </div>

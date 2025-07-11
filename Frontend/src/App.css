@@ -194,3 +194,54 @@ main .right {
   font-style: italic;
   color: #bbbbbb;
 }
+
+@media (max-width: 900px) {
+  main {
+    flex-direction: column;
+    height: auto;
+    padding: 0.5rem;
+  }
+
+  main .left,
+  main .right {
+    height: auto;
+    min-height: 250px;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .left .code,
+  .right .review-content {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+
+  header {
+    font-size: 1.2rem;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 0.2rem;
+  }
+
+  .left-header,
+  .right h3 {
+    font-size: 1rem;
+    padding: 0.3rem;
+  }
+
+  .left .button-bar button,
+  .left .review-btn {
+    font-size: 0.95rem;
+    padding: 0.3rem 0.7rem;
+  }
+
+  .left .code,
+  .right .review-content {
+    font-size: 0.95rem;
+    padding: 0.3rem;
+  }
+}
