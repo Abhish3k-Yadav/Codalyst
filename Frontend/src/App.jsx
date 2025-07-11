@@ -10,9 +10,8 @@ import './App.css';
 
 function App() {
   const [code, setCode] = useState(`// Code here`);
-  const [review, setReview] = useState(
-    'CODALYST: Boost your code 🚀 with smart AI reviews 🤖 for better quality ✅ and faster results ⚡'
-  );
+  const defaultReviewMessage = 'CODALYST: Boost your code 🚀 with smart AI reviews 🤖 for better quality ✅ and faster results ⚡';
+  const [review, setReview] = useState(defaultReviewMessage);
   const [isReviewing, setIsReviewing] = useState(false);
 
   useEffect(() => {
@@ -46,12 +45,14 @@ function App() {
           <div className="left-header">
             <h3>Code Editor</h3>
             <div className="button-bar">
-              <button onClick={clearCode} title="Clear">
+              <button onClick={clearCode} title="Clear" aria-label="Clear code editor">
                 🗑️
               </button>
               <button
                 onClick={reviewCode}
                 className={`review-btn ${isReviewing ? 'reviewing' : ''}`}
+                disabled={isReviewing}
+                aria-label="Review code"
               >
                 Review
               </button>
@@ -61,22 +62,19 @@ function App() {
             <Editor
               value={code}
               onValueChange={(code) => setCode(code)}
-              highlight={(code) =>
-                prism.highlight(code, prism.languages.javascript, 'javascript')
-              }
+              highlight={code => prism.highlight(code, prism.languages.javascript, 'javascript')}
               padding={10}
               style={{
-                fontFamily: '"Fira Code", "JetBrains Mono", monospace',
+                fontFamily: '"JetBrains Mono", "Fira Code", "Menlo", "Monaco", "Consolas", monospace',
                 fontSize: 16,
                 border: 'none',
                 borderRadius: '5px',
-                minHeight: '150px',
+                minHeight: '100%',
                 width: '100%',
                 overflow: 'auto',
-                backgroundColor: '#2a2a2a',
-                color: '#e0e0e0',
+                backgroundColor: '#1e1e1e',
+                color: '#d4d4d4',
                 boxSizing: 'border-box',
-                resize: 'vertical',
               }}
             />
           </div>
@@ -84,7 +82,27 @@ function App() {
         <div className="right">
           <h3>Code Review</h3>
           <div className="review-content">
-            <Markdown rehypePlugins={[rehypeHighlight]}>{review}</Markdown>
+            {isReviewing ? (
+              <div className="loading-spinner" style={{ textAlign: 'center', padding: '2rem' }}>
+                <span className="lds-dual-ring"></span>
+                <span role="status" aria-live="polite">Reviewing your code...</span>
+              </div>
+            ) : (
+              <Markdown
+                rehypePlugins={[rehypeHighlight]}
+                components={{
+                  p: ({ node, ...props }) =>
+                    review === defaultReviewMessage ? (
+                      <p className="default-review-message" {...props} />
+                    ) : (
+                      <p className="review-feedback" {...props} />
+                    ),
+                  ul: ({ node, ...props }) => <ul className="review-feedback-list" {...props} />,
+                  ol: ({ node, ...props }) => <ol className="review-feedback-list" {...props} />,
+                  li: ({ node, ...props }) => <li className="review-feedback-list-item" {...props} />,
+                }}
+              >{review}</Markdown>
+            )}
           </div>
         </div>
       </main>

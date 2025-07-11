@@ -195,6 +195,94 @@ main .right {
   color: #bbbbbb;
 }
 
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ff9500;
+  font-size: 1.1rem;
+  min-height: 80px;
+}
+
+.loading-spinner .lds-dual-ring {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.7rem;
+}
+
+.loading-spinner .lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin: 4px;
+  border-radius: 50%;
+  border: 4px solid #ff9500;
+  border-color: #ff9500 transparent #ff9500 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.review-default {
+  color: #ff9500;
+  font-weight: 600;
+}
+
+.review-feedback {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 1.01rem;
+  line-height: 1.8;
+  color: #fff;
+  background: rgba(255, 149, 0, 0.08);
+  border-left: 4px solid #ff9500;
+  padding: 0.7em 1em;
+  margin: 1em 0;
+  border-radius: 0.4em;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Remove broad heading styling from all h3, h4, strong in review-feedback. If you want to style only specific headings, use a more specific selector or add a class in the markdown output. */
+.review-feedback-list,
+.review-feedback-list-item {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 0.98rem;
+  color: #fff;
+  margin-left: 1.5em;
+  line-height: 1.7;
+}
+
+.review-error {
+  color: #ff3b3b;
+  font-weight: 700;
+  background: rgba(255, 59, 59, 0.08);
+  border-left: 4px solid #ff3b3b;
+}
+
+.default-review-message {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 1.08rem;
+  color: #ff9500;
+  background: rgba(255, 149, 0, 0.08);
+  border-left: 4px solid #ff9500;
+  padding: 0.7em 1em;
+  margin: 1em 0;
+  border-radius: 0.4em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
 @media (max-width: 900px) {
   main {
     flex-direction: column;

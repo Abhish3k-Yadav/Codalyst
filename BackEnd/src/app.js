@@ -4,7 +4,11 @@ const cors = require('cors')
 
 const app = express()
 
-app.use(cors())
+if (process.env.NODE_ENV === 'production') {
+    app.use(cors({ origin: process.env.FRONTEND_ORIGIN }));
+} else {
+    app.use(cors());
+}
 
 app.use(express.json())
 
