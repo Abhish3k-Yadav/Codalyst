@@ -1,0 +1,150 @@
+:root {
+  --color-bg: #242424;
+  --color-text: rgba(255, 255, 255, 0.87);
+  --color-header: #ff9500;
+  --color-left-bg: #212121;
+  --color-code-bg: #2a2a2a;
+  --color-right-bg: #343434;
+  --color-right-text: #e0e0e0;
+  --color-btn-bg: #ff9500;
+  --color-btn-hover: #ff8000;
+  --color-btn-text: #fff;
+  --color-pre-bg: #1e1e1e;
+  --color-pre-code: #d4d4d4;
+  --color-link: #646cff;
+  --color-link-hover: #535bf2;
+  --color-error: #bbbbbb;
+  --color-border: #646cff;
+  --color-btn-border: transparent;
+  --color-btn-bg-light: #f9f9f9;
+  --color-link-hover-light: #747bff;
+  --color-bg-light: #ffffff;
+  --color-text-light: #213547;
+}
+
+[data-theme="dark"] {
+  --color-bg: #242424;
+  --color-text: rgba(255, 255, 255, 0.87);
+  --color-header: #ff9500;
+  --color-left-bg: #212121;
+  --color-code-bg: #2a2a2a;
+  --color-right-bg: #343434;
+  --color-right-text: #e0e0e0;
+  --color-btn-bg: #ff9500;
+  --color-btn-hover: #ff8000;
+  --color-btn-text: #fff;
+  --color-pre-bg: #1e1e1e;
+  --color-pre-code: #d4d4d4;
+  --color-link: #646cff;
+  --color-link-hover: #535bf2;
+  --color-error: #bbbbbb;
+  --color-border: #646cff;
+  --color-btn-border: transparent;
+}
+
+[data-theme="light"] {
+  --color-bg: #c9c9c8dc;
+  --color-text: hsl(210, 11%, 4%);
+  --color-header: #ff9500;
+  --color-left-bg: #EEEEEE;
+  --color-code-bg: #eef2f3;
+  --color-code-text: #000000;
+  --color-right-bg: #f1ecec;
+  --color-right-text: #000000;
+  --color-btn-bg: #ff9500;
+  --color-btn-hover: #ff8000;
+  --color-btn-text: #fff;
+  --color-pre-bg: #ffe5c234;
+  --color-pre-code: #1a2329;
+  --color-link: #646cff;
+  --color-link-hover: #747bff;
+  --color-error: #888;
+  --color-border: #646cff;
+  --color-btn-border: transparent;
+}
+
+[data-theme="light"] .left .code,
+[data-theme="light"] .react-simple-code-editor textarea {
+  border: none !important;
+  box-shadow: none !important;
+  color: var(--color-code-text) !important;
+}
+
+[data-theme="light"] .left .code pre,
+[data-theme="light"] .left .code code {
+  color: var(--color-code-text) !important;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+header {
+  color: var(--color-header);
+}
+
+a {
+  color: var(--color-link);
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+button {
+  background-color: var(--color-btn-bg);
+  color: var(--color-btn-text);
+  border: 1px solid var(--color-btn-border);
+}
+
+button:hover {
+  border-color: var(--color-border);
+  background-color: var(--color-btn-hover);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+main .left {
+  background-color: var(--color-left-bg);
+}
+
+.left .code {
+  background-color: var(--color-code-bg);
+}
+
+main .right {
+  background-color: var(--color-right-bg);
+  color: var(--color-right-text);
+}
+
+.right pre {
+  background-color: var(--color-pre-bg);
+}
+
+.right pre code {
+  color: var(--color-pre-code);
+}
+
+.right .loading,
+.right .error {
+  color: var(--color-error);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: var(--color-text-light);
+    background-color: var(--color-bg-light);
+  }
+
+  a:hover {
+    color: var(--color-link-hover-light);
+  }
+
+  button {
+    background-color: var(--color-btn-bg-light);
+  }
+}
