@@ -122,15 +122,9 @@ npm run dev
 
 ---
 
-## 📄 License
-
-MIT
-
----
-
 ## 🙋‍♂️ Author
 
-- [Your Name](https://github.com/yourusername)
+- [Abhishek](https://github.com/Abhish3k-Yadav)
 
 ---
 
